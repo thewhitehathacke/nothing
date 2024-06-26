@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olympic Symbol</title>
+    <style>
+        #canvas {
+            display: block;
+            margin: 20px auto;
+            border: 1px solid #000;
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var canvas = document.getElementById("canvas");
+            var ctx = canvas.getContext("2d");
+
+            // Clear canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Center coordinates
+            var centerX = canvas.width / 2;
+            var centerY = canvas.height / 2;
+
+            // Radius of the circles
+            var radius = 80;
+
+            // Colors for the rings
+            var colors = ["blue", "black", "red", "yellow", "green"];
+
+            // Draw each ring
+            for (var i = 0; i < colors.length; i++) {
+                ctx.beginPath();
+                ctx.arc(centerX - (120 * (i - 1)), centerY, radius, 0, 2 * Math.PI);
+                ctx.strokeStyle = colors[i];
+                ctx.lineWidth = 20;
+                ctx.stroke();
+            }
+        });
+    </script>
+</head>
+<body>
+    <canvas id="canvas" width="400" height="400"></canvas>
+</body>
+</html>
